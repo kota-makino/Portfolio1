@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     user =  User.find_by(email:email_params[:email])
     if user && user.authenticate(password_params[:password])
       log_in user
-      redirect_to root_path
+      redirect_to new_topic_path
     else
       render :new
     end
