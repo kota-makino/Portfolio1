@@ -15,7 +15,6 @@ h1 {
   position: fixed;
   width: 100%;
   z-index: 10000;
-  color: red;
 }
 
 
@@ -45,4 +44,15 @@ h1 {
       width: 100%;
     }
   }
+}
+
+.topic-index-icon {
+ font-size: 3em;
+ margin-left: 10px;
+ margin-bottom: 30px;
+ color: #000;
+}
+
+.fas {
+  color: red;
 }

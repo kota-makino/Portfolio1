@@ -8,6 +8,20 @@
               <%= topic.user.name %>
             </h2>
             <%= image_tag topic.image.url %>
+            <% if !topic.favorite_users.include?(current_user) %>
+             <%= link_to favorites_path(topic_id: topic.id),method: :post do %>
+              <%= icon("far","heart",class:"topic-index-icon") %>
+             <% end %>
+            <% else %>
+             <%= link_to favorites_path(topic_id: topic.id),method: :delete do %>
+              <%= icon("fas","heart",class:"topic-index-icon fas") %>
+             <% end %>
+            <% end %>
+            <%= topic.favorites.count %>
+
+            <%= icon("far","star", class:"topic-index-icon") %>
+            <%= icon("far","comment-dots",class:"topic-index-icon") %>
+
             <p class="topic-text">
               <%= topic.description %>
             </p>
