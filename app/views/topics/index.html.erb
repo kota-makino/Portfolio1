@@ -14,12 +14,22 @@
              <% end %>
             <% else %>
              <%= link_to favorites_path(topic_id: topic.id),method: :delete do %>
-              <%= icon("fas","heart",class:"topic-index-icon fas") %>
+              <%= icon("fas","heart",class:"topic-index-icon heart") %>
              <% end %>
             <% end %>
             <%= topic.favorites.count %>
 
-            <%= icon("far","star", class:"topic-index-icon") %>
+            <% if !topic.bookmark_users.include?(current_user) %>
+             <%= link_to bookmarks_path(topic_id: topic.id),method: :post do %>
+              <%= icon("far","star", class:"topic-index-icon") %>
+             <% end %>
+            <% else %>
+             <%= link_to bookmarks_path(topic_id: topic.id),method: :delete do %>
+              <%= icon("fas","star", class:"topic-index-icon star") %>
+             <% end %>
+            <% end %>
+            <%= topic.bookmarks.count %>
+
             <%= icon("far","comment-dots",class:"topic-index-icon") %>
 
             <p class="topic-text">

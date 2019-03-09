@@ -7,5 +7,7 @@ class User < ApplicationRecord
 
   has_many :topics
   has_many :favorites
+  has_many :bookmarks
+
 
 end
